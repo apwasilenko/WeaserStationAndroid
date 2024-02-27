@@ -16,17 +16,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_main );
 
-        btUpdate = (Button) findViewById ( R.id.btUpdate );
+        btUpdate = findViewById ( R.id.btUpdate );
         btUpdate.setOnClickListener ( this );
 
-        tvResponse = (TextView) findViewById ( R.id.tvResponse );
+        tvResponse = findViewById ( R.id.tvResponse );
+
+        tvResponse.setText ( R.string.textTV1 );
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId ()){
-            case R.id.btUpdate:
-                tvResponse.setText (  R.string.textTV2);
+        if (view.getId () == R.id.btUpdate) {
+            tvResponse.setText ( R.string.textTV2 );
         }
     }
 }
