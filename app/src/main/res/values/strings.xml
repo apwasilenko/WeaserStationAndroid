@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Погодная станция андроид</string>
+    <string name="textTV1">Ответ!</string>
+    <string name="btUpdate">Обновить!</string>
+</resources>
