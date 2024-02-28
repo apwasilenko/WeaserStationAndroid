@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private WeaserBD weaserBD;
 
     Button btUpdate;
     TextView tvResponse;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_main );
+
+        weaserBD = new WeaserBD ();
 
         btUpdate = findViewById ( R.id.btUpdate );
         btUpdate.setOnClickListener ( this );
@@ -27,7 +30,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view.getId () == R.id.btUpdate) {
-            tvResponse.setText ( R.string.textTV2 );
+            updateWeaserBD ();
+        }
+    }
+
+    public void updateWeaserBD(){
+
+        try {
+            tvResponse.setText ( weaserBD.getBDHtml () );
+        } catch (InterruptedException e) {
+            e.printStackTrace ();
         }
     }
 }
