@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btUpdate;
     TextView tvResponse;
+    ru.apvasilenko.weaserststionandroid.myview.SensorView sensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvResponse = findViewById ( R.id.tvResponse );
 
         tvResponse.setText ( R.string.textTV1 );
+        sensor = findViewById ( R.id.sensor );
+        if (sensor.getHeight () < sensor.getWidth ()){
+            sensor.setMinimumHeight ( sensor.getWidth ());
+        }
     }
 
     @Override

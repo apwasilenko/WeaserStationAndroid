@@ -3,4 +3,5 @@
     <string name="textTV1">Ответ!</string>
     <string name="textTV2">Response!</string>
     <string name="btUpdate">Обновить!</string>
+    <string name="btUpgrade">Отрисовать!</string>
 </resources>
