@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class SensorView extends View {
-    private Paint paint = new Paint (Paint.ANTI_ALIAS_FLAG);
+
     public SensorView(Context context) {
         super ( context );
     }
@@ -38,18 +38,24 @@ public class SensorView extends View {
 //        radius = Float.valueOf ( (float) (9.0 / 10.0) );
 //        canvas.drawCircle ( 0,0, radius, paint );
 
+        Paint paint = new Paint (Paint.ANTI_ALIAS_FLAG);
+        paint.setColor ( Color.CYAN );
+        paint.setStyle ( Paint.Style.FILL_AND_STROKE );
+        paint.setStrokeWidth ( 1f );
+        canvas.drawLine ( 100f, 100f, 300f, 100f, paint );
+        canvas.drawLine ( 100f, 70f, 300f, 70f, paint );
+        float centerX = getWidth ()/2;
+        float centerY = getHeight ()/2;
+        float radius =  getHeight ()/2;
+        canvas.drawCircle ( centerX, centerY, radius, paint );
+
         Paint fontPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         fontPaint.setColor ( Color.RED );
         fontPaint.setTextSize(40);
         fontPaint.setStyle(Paint.Style.STROKE);
         float width = fontPaint.measureText("10");
         String text = "Ширина = " + getWidth () + "Ширина текста = " + String.valueOf ( width );
-        paint.setColor ( Color.RED );
-        paint.setStyle ( Paint.Style.STROKE );
-        paint.setStrokeWidth ( 1f );
         canvas.drawText (text, 100,100, fontPaint );
-        canvas.drawLine ( 100f, 100f, 300f, 100f, paint );
-        canvas.drawLine ( 100f, 70f, 300f, 70f, paint );
 
         canvas.restore ();  // Востонавливаем холст
     }
